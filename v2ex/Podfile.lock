@@ -1,0 +1,15 @@
+PODS:
+  - Alamofire (4.2.0)
+  - RAMAnimatedTabBarController (2.0.13)
+
+DEPENDENCIES:
+  - Alamofire
+  - RAMAnimatedTabBarController (~> 2.0.13)
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  RAMAnimatedTabBarController: 2510f3b66954c3f77ea1042a35d34df8f5f3b604
+
+PODFILE CHECKSUM: d270aaa499d7ada5b9a594ebb266793ead254ea7
+
+COCOAPODS: 1.1.1
