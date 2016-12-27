@@ -35,7 +35,7 @@
         <!--Item 1-->
         <scene sceneID="PrT-Hb-mLa">
             <objects>
-                <viewController id="oJw-Lf-Ewx" sceneMemberID="viewController">
+                <viewController id="oJw-Lf-Ewx" customClass="HomeViewController" customModule="v2ex" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8CS-Si-Xfk"/>
                         <viewControllerLayoutGuide type="bottom" id="dkz-ij-ehC"/>

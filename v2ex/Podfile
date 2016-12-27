@@ -3,4 +3,5 @@ target 'v2ex' do
   use_frameworks!
   pod 'Alamofire'
   pod 'RAMAnimatedTabBarController', "~> 2.0.13"
+  pod 'SwiftyJSON'
 end

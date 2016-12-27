@@ -14,6 +14,7 @@
 		256133641E0E47F100DFDA91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256133621E0E47F100DFDA91 /* LaunchScreen.storyboard */; };
 		25860DBC1E11612B004D722C /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25860DBB1E11612B004D722C /* RAMBounceAnimation.swift */; };
 		25860DBE1E1162E3004D722C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25860DBD1E1162E3004D722C /* MainViewController.swift */; };
+		25CC85151E12B66500FF87A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CC85141E12B66500FF87A1 /* HomeViewController.swift */; };
 		CC5167289BA5609F7EDEE913 /* Pods_v2ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C30A1A4DF13AF68E3F9108F /* Pods_v2ex.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		256133651E0E47F100DFDA91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25860DBB1E11612B004D722C /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		25860DBD1E1162E3004D722C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		25CC85141E12B66500FF87A1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5020B4E016B08DF6DDB52713 /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
 		5C30A1A4DF13AF68E3F9108F /* Pods_v2ex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_v2ex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713F1FBE104CFF9F34B01F1D /* Pods-v2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,16 +67,41 @@
 		256133581E0E47F100DFDA91 /* v2ex */ = {
 			isa = PBXGroup;
 			children = (
-				256133591E0E47F100DFDA91 /* AppDelegate.swift */,
+				25CC85161E12B7E600FF87A1 /* Resource */,
+				25CC85131E12B63C00FF87A1 /* AppDelegate */,
+				25CC85121E12B62500FF87A1 /* Other */,
 				2561335B1E0E47F100DFDA91 /* ViewController.swift */,
 				2561335D1E0E47F100DFDA91 /* Main.storyboard */,
-				256133601E0E47F100DFDA91 /* Assets.xcassets */,
 				256133621E0E47F100DFDA91 /* LaunchScreen.storyboard */,
-				256133651E0E47F100DFDA91 /* Info.plist */,
-				25860DBB1E11612B004D722C /* RAMBounceAnimation.swift */,
 				25860DBD1E1162E3004D722C /* MainViewController.swift */,
+				25CC85141E12B66500FF87A1 /* HomeViewController.swift */,
 			);
 			path = v2ex;
+			sourceTree = "<group>";
+		};
+		25CC85121E12B62500FF87A1 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				25860DBB1E11612B004D722C /* RAMBounceAnimation.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		25CC85131E12B63C00FF87A1 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				256133591E0E47F100DFDA91 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		25CC85161E12B7E600FF87A1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				256133601E0E47F100DFDA91 /* Assets.xcassets */,
+				256133651E0E47F100DFDA91 /* Info.plist */,
+			);
+			name = Resource;
 			sourceTree = "<group>";
 		};
 		25F8736E272C44815E99002A /* Pods */ = {
@@ -217,6 +244,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25CC85151E12B66500FF87A1 /* HomeViewController.swift in Sources */,
 				25860DBC1E11612B004D722C /* RAMBounceAnimation.swift in Sources */,
 				2561335C1E0E47F100DFDA91 /* ViewController.swift in Sources */,
 				2561335A1E0E47F100DFDA91 /* AppDelegate.swift in Sources */,
