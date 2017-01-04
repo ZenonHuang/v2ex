@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import PKHUD
 
 class HomeViewController: UIViewController {   
     
@@ -20,8 +21,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()       
         view.backgroundColor = UIColor.orange          
                
+        let size=self.view.frame.size;
+        
         // 1.创建tableView,并添加的控制器的view
-        let tableView = UITableView(frame: view.bounds)
+        let tableView = UITableView(frame: CGRect.init(x: 0, y: 22, width: size.width, height: size.height))
         
         // 2.设置数据源代理
         tableView.dataSource = self
@@ -33,7 +36,8 @@ class HomeViewController: UIViewController {
         // 4.注册cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
-        
+        HUD.show(.progress, onView: self.view)
+       
         //最热主题 相当于首页右侧的 10 大每天的内容。
         Alamofire.request("https://www.v2ex.com/api/topics/hot.json").responseJSON { response in
             
@@ -44,9 +48,10 @@ class HomeViewController: UIViewController {
                 //                print("test swiftyJSON \(index): \(value)")
                 let itemObj = JSON(value)
                 let title = itemObj["title"].stringValue
-                print("test swiftyJSON \(index): \(title)")
+                print("test swiftyJSON \(index): \(title)\n \(itemObj)")
             }
             tableView.reloadData()
+            HUD.hide(animated: true)
         }
 
         
@@ -57,8 +62,6 @@ class HomeViewController: UIViewController {
 
 // Swift中类的扩展: Swift中的扩展相当于OC中的分类
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    
     // MARK:- UITableViewDataSource数据源
     // 必须实现UITableViewDataSource的option修饰的必须实现的方法,否则会报错
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -101,7 +104,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     // MARK:- UITableViewDelegate代理
-    private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
-        print("点击了\(indexPath.row)")
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let detailsVC=DetailsViewController()
+        let data=self.dataArray[indexPath.row]
+        let itemObj = JSON(data)
+        detailsVC.id=itemObj["id"].int
+        self.navigationController?.show(detailsVC, sender: self)
+         print("点击了\(indexPath.row)")
     }
 }

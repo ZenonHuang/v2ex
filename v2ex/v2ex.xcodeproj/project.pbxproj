@@ -15,6 +15,7 @@
 		25860DBC1E11612B004D722C /* RAMBounceAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25860DBB1E11612B004D722C /* RAMBounceAnimation.swift */; };
 		25860DBE1E1162E3004D722C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25860DBD1E1162E3004D722C /* MainViewController.swift */; };
 		25CC85151E12B66500FF87A1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CC85141E12B66500FF87A1 /* HomeViewController.swift */; };
+		25CE064D1E1D4C6300C388A6 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE064C1E1D4C6300C388A6 /* DetailsViewController.swift */; };
 		CC5167289BA5609F7EDEE913 /* Pods_v2ex.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C30A1A4DF13AF68E3F9108F /* Pods_v2ex.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		25860DBB1E11612B004D722C /* RAMBounceAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RAMBounceAnimation.swift; sourceTree = "<group>"; };
 		25860DBD1E1162E3004D722C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		25CC85141E12B66500FF87A1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		25CE064C1E1D4C6300C388A6 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		5020B4E016B08DF6DDB52713 /* Pods-v2ex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.debug.xcconfig"; sourceTree = "<group>"; };
 		5C30A1A4DF13AF68E3F9108F /* Pods_v2ex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_v2ex.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		713F1FBE104CFF9F34B01F1D /* Pods-v2ex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-v2ex.release.xcconfig"; path = "Pods/Target Support Files/Pods-v2ex/Pods-v2ex.release.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				256133621E0E47F100DFDA91 /* LaunchScreen.storyboard */,
 				25860DBD1E1162E3004D722C /* MainViewController.swift */,
 				25CC85141E12B66500FF87A1 /* HomeViewController.swift */,
+				25CE064C1E1D4C6300C388A6 /* DetailsViewController.swift */,
 			);
 			path = v2ex;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				2561335C1E0E47F100DFDA91 /* ViewController.swift in Sources */,
 				2561335A1E0E47F100DFDA91 /* AppDelegate.swift in Sources */,
 				25860DBE1E1162E3004D722C /* MainViewController.swift in Sources */,
+				25CE064D1E1D4C6300C388A6 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
