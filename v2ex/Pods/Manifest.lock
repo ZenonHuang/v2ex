@@ -2,20 +2,23 @@ PODS:
   - Alamofire (4.2.0)
   - PKHUD (4.1.0)
   - RAMAnimatedTabBarController (2.0.13)
+  - SnapKit (3.1.2)
   - SwiftyJSON (3.1.3)
 
 DEPENDENCIES:
   - Alamofire
   - PKHUD (~> 4.0)
   - RAMAnimatedTabBarController (~> 2.0.13)
+  - SnapKit
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   PKHUD: a0ecdee9f67d9b462c0c5e4ba38400292ea6ae6e
   RAMAnimatedTabBarController: 2510f3b66954c3f77ea1042a35d34df8f5f3b604
+  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: 08d9aea36da4c810ac24925550c04326fc0790d9
+PODFILE CHECKSUM: 66cb67019341ca286c920705bd8194fe16f9f440
 
 COCOAPODS: 1.1.1

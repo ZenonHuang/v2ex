@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         let size=self.view.frame.size;
         
         // 1.创建tableView,并添加的控制器的view
-        let tableView = UITableView(frame: CGRect.init(x: 0, y: 22, width: size.width, height: size.height))
+        let tableView = UITableView(frame: CGRect.init(x: 0, y: 64, width: size.width, height: size.height))
         
         // 2.设置数据源代理
         tableView.dataSource = self
@@ -36,6 +36,8 @@ class HomeViewController: UIViewController {
         // 4.注册cell
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
+        
+        tableView.tableFooterView=UIView.init();
         HUD.show(.progress, onView: self.view)
        
         //最热主题 相当于首页右侧的 10 大每天的内容。
