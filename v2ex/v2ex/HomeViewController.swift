@@ -99,7 +99,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID)
         
-        cell?.textLabel?.text = "\(indexPath.row) \(title)"
+        cell?.textLabel?.text = "\(indexPath.row+1) \(title)"
         
         return cell!
         

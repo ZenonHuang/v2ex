@@ -18,52 +18,55 @@ class Details: NSObject {  //模型类
     var content:String?
     
     // print时会调用。相当于java中的 toString()。为了代码整洁下面的模型去了这个计算属性。测试时请下载demo
-//    override internal var description: String {  
-//        return "name: \(name) \n icon:\(icon) \n"
-//    }
+    //    override internal var description: String {  
+    //        return "name: \(name) \n icon:\(icon) \n"
+    //    }
 }
 
 class DetailsViewController: UIViewController {   
-      var id: Int! 
+    var id : Int! 
+    var titleLabel : UILabel! 
+    var contentLabel : UILabel!
     
-      override func viewDidLoad() {      
+    
+    override func viewDidLoad() {      
         super.viewDidLoad()       
         
         self.navigationItem.title="详情"
         self.view.backgroundColor = UIColor.orange  
         
-       
+ 
+        // Optional Chainin or Guard
+        guard let detailsID = self.id else {
+            return 
+        }
         
-        //
+        
         HUD.show(.progress, onView: self.view)
-        
-        // Optional Chainin
-        if  let detailsID = self.id {
-            //主题信息
-            Alamofire.request("http://www.v2ex.com/api/topics/show.json?id=\(detailsID)").responseJSON { response in
-                
-                if let value = response.result.value {
-                    let json = JSON(value)
-                    print("details JSON id \(detailsID) \n \(json)")
-                    if let obj = json.arrayObject?[0] {
-                        
-                        let title = JSON(obj)["title"].stringValue
-                        print("dict \(title)")
-                         self.setupTitle(text: title)
-                    }
-                
+      
+        //主题信息
+        Alamofire.request("http://www.v2ex.com/api/topics/show.json?id=\(detailsID)").responseJSON { response in
+            
+            if let value = response.result.value {
+                let json = Array(JSON(value))
+                print("details JSON id \(detailsID) \n \(json)")
+                if let obj = json.first {
+                    let title = obj.1["title"].stringValue
+                    let content = obj.1["content"].stringValue
+                    print("dict \(title)")
+                    self.setupTitle(text: title)
+                    self.setupContent(text: content)
                 }
                 
-             
-                
-                
-                HUD.hide(animated: true)
             }
+            
+            HUD.hide(animated: true)
         }
-       
         
         
- 
+        
+        
+        
     }
     
 }
@@ -77,21 +80,46 @@ class DetailsViewController: UIViewController {
 extension DetailsViewController {
     
     func setupTitle(text:String?) {
-    
+        
         let titleLabel=UILabel.init()
         if let title=text {
             titleLabel.text=title
         }
-    
+        
         titleLabel.backgroundColor=UIColor.red
+        titleLabel.numberOfLines=0
         self.view.addSubview(titleLabel)
-                    
+        
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(64)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(60)
         }
+        
+        self.titleLabel=titleLabel;
+    }
+    
+    func setupContent(text:String?) {
+        
+        let label = UILabel.init()
+        if let text = text {
+            label.text=text
+        }
+        
+//        label.backgroundColor=UIColor.red
+        label.numberOfLines=0
+        self.view.addSubview(label)
+        
+        label.snp.makeConstraints { (make) in
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(0)
+//            make.centerX.equalToSuperview()
+            make.left.equalTo(self.view)
+            make.width.equalToSuperview()
+//            make.height.equalTo(60)
+        }
+        
+        self.contentLabel=label
     }
 
 }
