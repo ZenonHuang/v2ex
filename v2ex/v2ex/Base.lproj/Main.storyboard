@@ -1,61 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8Ah-AC-ZbI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8Ah-AC-ZbI">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
-        <scene sceneID="Q4p-cK-b4B">
-            <objects>
-                <viewController id="HEy-yY-VPT" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eT9-Sv-hZW"/>
-                        <viewControllerLayoutGuide type="bottom" id="Pmd-SE-1Z5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zj6-Bt-NjO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" image="twitter" id="dUa-s4-vza" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <connections>
-                            <outlet property="animation" destination="ZS4-B2-98y" id="jbS-RS-dnr"/>
-                        </connections>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iXy-Z7-fSq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="ZS4-B2-98y" customClass="RAMBounceAnimation" customModule="v2ex" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="980" y="981"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="PrT-Hb-mLa">
-            <objects>
-                <viewController id="oJw-Lf-Ewx" customClass="HomeViewController" customModule="v2ex" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8CS-Si-Xfk"/>
-                        <viewControllerLayoutGuide type="bottom" id="dkz-ij-ehC"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ni2-uq-r3F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" image="twitter" id="29w-SV-IhU" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <connections>
-                            <outlet property="animation" destination="hdk-JA-Ges" id="3IJ-HI-mjY"/>
-                        </connections>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4UI-9W-fll" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="hdk-JA-Ges" customClass="RAMBounceAnimation" customModule="v2ex" customModuleProvider="target"/>
-            </objects>
-            <point key="canvasLocation" x="980" y="243"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="JdX-7z-n2a">
             <objects>
@@ -72,27 +24,20 @@
             </objects>
             <point key="canvasLocation" x="-910" y="437"/>
         </scene>
-        <!--Animated Tab Bar Controller-->
+        <!--Main View Controller-->
         <scene sceneID="udX-CG-7fp">
             <objects>
-                <tabBarController id="TwW-cV-YNR" customClass="RAMAnimatedTabBarController" customModule="RAMAnimatedTabBarController" sceneMemberID="viewController">
+                <tabBarController id="TwW-cV-YNR" customClass="MainViewController" customModule="v2ex" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="0Gr-5g-Suk"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Mer-Bh-Ygy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="oJw-Lf-Ewx" kind="relationship" relationship="viewControllers" id="bXl-pL-V1K"/>
-                        <segue destination="HEy-yY-VPT" kind="relationship" relationship="viewControllers" id="9L4-yW-CyJ"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbV-Es-cXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="118" y="435"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="twitter" width="200" height="200"/>
-    </resources>
 </document>

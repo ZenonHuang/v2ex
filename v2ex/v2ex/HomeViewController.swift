@@ -19,12 +19,12 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {      
         super.viewDidLoad()       
-        view.backgroundColor = UIColor.orange          
+        view.backgroundColor = UIColor.white          
                
         let size=self.view.frame.size;
         
         // 1.创建tableView,并添加的控制器的view
-        let tableView = UITableView(frame: CGRect.init(x: 0, y: 64, width: size.width, height: size.height))
+        let tableView = UITableView(frame: CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
         
         // 2.设置数据源代理
         tableView.dataSource = self
@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
         view.addSubview(tableView)
         
         // 4.注册cell
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: cellID)
         
         
         tableView.tableFooterView=UIView.init();
@@ -93,19 +93,31 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
          */
         
         
-        let data=self.dataArray[indexPath.row]
+        let data  = self.dataArray[indexPath.row]
         let itemObj = JSON(data)
         let title = itemObj["title"].stringValue
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID)
+        let user  = itemObj["member"]
+        let nickname  = user["username"].stringValue
+        let avatarUrl = user["avatar_mini"].stringValue
         
-        cell?.textLabel?.text = "\(indexPath.row+1) \(title)"
+        let cell : HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellID) as! HomeTableViewCell
         
-        return cell!
+        cell .configureCell(avatar: avatarUrl, nickname: nickname, title: title, time: "1秒前", category: "程序员")
+//        cell?.textLabel?.text = "\(indexPath.row+1) \(title)"
+        
+        return cell
         
     }
     
+    
+    
     // MARK:- UITableViewDelegate代理
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailsVC=DetailsViewController()
