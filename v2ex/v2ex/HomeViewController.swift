@@ -106,7 +106,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell : HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellID) as! HomeTableViewCell
         
-        cell .configureCell(avatar: avatarUrl, nickname: nickname, title: title, content: content, time: "1秒前", category: "程序员")
+        cell .configureCell(avatar: "http:"+avatarUrl, nickname: nickname, title: title, content: content, time: "1秒前", category: "程序员")
 //        cell?.textLabel?.text = "\(indexPath.row+1) \(title)"
         
         return cell

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeTableViewCell: UITableViewCell {
     var avatarImageView : UIImageView?
@@ -34,6 +35,8 @@ class HomeTableViewCell: UITableViewCell {
         self.timeLabel?.text=time
 //        self.categoryLabel
         self.avatarImageView?.image=UIImage(named: "twitter")
+        self.avatarImageView?.kf.setImage(with: NSURL(string : avatar) as? Resource, placeholder: UIImage(named: "twitter"), options: nil, progressBlock: nil, completionHandler: nil)
+
     }
     
     func addUI() {

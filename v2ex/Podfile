@@ -6,4 +6,5 @@ target 'v2ex' do
   pod 'RAMAnimatedTabBarController', "~> 2.0.13"
   pod 'SwiftyJSON'
   pod 'PKHUD', '~> 4.0'
+  pod 'Kingfisher', '~> 3.6.2'
 end
