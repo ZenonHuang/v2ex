@@ -12,6 +12,7 @@ class HomeTableViewCell: UITableViewCell {
     var avatarImageView : UIImageView?
     var nicknameLabel : UILabel?
     var newsTitleLabel : UILabel?
+    var newsContentLabel : UILabel?
     var timeLabel : UILabel?
     var categoryLabel : UILabel?
 
@@ -26,9 +27,10 @@ class HomeTableViewCell: UITableViewCell {
         self.setupUI()
     }
     
-    func configureCell(avatar: String,nickname: String,title: String,time :String,category :String) {
+    func configureCell(avatar: String,nickname: String,title: String, content: String, time :String,category :String) {
         self.nicknameLabel?.text=nickname
         self.newsTitleLabel?.text=title
+        self.newsContentLabel?.text=content
         self.timeLabel?.text=time
 //        self.categoryLabel
         self.avatarImageView?.image=UIImage(named: "twitter")
@@ -42,7 +44,16 @@ class HomeTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.nicknameLabel!)
         
         self.newsTitleLabel = UILabel()
+        self.newsTitleLabel?.font=UIFont.systemFont(ofSize: 15)
+        self.newsTitleLabel?.numberOfLines=0
         self.contentView.addSubview(self.newsTitleLabel!)
+        
+        self.newsContentLabel = UILabel()
+        self.newsContentLabel?.textColor=UIColor.gray
+        self.newsContentLabel?.font=UIFont.systemFont(ofSize: 12)
+        self.newsContentLabel?.numberOfLines=2
+        self.contentView.addSubview(self.newsContentLabel!)
+        
         
         self.timeLabel = UILabel()
         self.contentView.addSubview(self.timeLabel!)
@@ -54,8 +65,8 @@ class HomeTableViewCell: UITableViewCell {
     func setupUI() {
         
         self.avatarImageView?.snp.makeConstraints({ (make) in
-            make.top.left.equalTo(self.contentView)
-            make.width.height.equalTo(50)
+            make.top.left.equalTo(self.contentView).offset(10)
+            make.width.height.equalTo(30)
         })  
         
         self.nicknameLabel?.snp.makeConstraints({ (make) in
@@ -64,10 +75,18 @@ class HomeTableViewCell: UITableViewCell {
         })
         
         self.newsTitleLabel?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self.avatarImageView!.snp.bottom).offset(-10)
+            make.top.equalTo(self.avatarImageView!.snp.bottom).offset(10)
             make.left.equalTo(self.avatarImageView!).offset(0)
             make.right.equalTo(self.contentView).offset(-10)
             make.height.equalTo(50)
+        })
+        
+        self.newsContentLabel?.snp.makeConstraints({ (make) in
+            make.top.equalTo(self.newsTitleLabel!.snp.bottom).offset(10)
+            make.left.equalTo(self.avatarImageView!).offset(0)
+            make.right.equalTo(self.contentView).offset(-10)
+//            make.height.equalTo(50)
+            make.bottom.equalTo(self.contentView.snp.bottom).offset(-10)
         })
     }
     

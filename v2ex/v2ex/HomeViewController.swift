@@ -95,7 +95,10 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let data  = self.dataArray[indexPath.row]
         let itemObj = JSON(data)
+        
         let title = itemObj["title"].stringValue
+        let content = itemObj["content"].stringValue
+        
         
         let user  = itemObj["member"]
         let nickname  = user["username"].stringValue
@@ -103,7 +106,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell : HomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellID) as! HomeTableViewCell
         
-        cell .configureCell(avatar: avatarUrl, nickname: nickname, title: title, time: "1秒前", category: "程序员")
+        cell .configureCell(avatar: avatarUrl, nickname: nickname, title: title, content: content, time: "1秒前", category: "程序员")
 //        cell?.textLabel?.text = "\(indexPath.row+1) \(title)"
         
         return cell
@@ -114,7 +117,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK:- UITableViewDelegate代理
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 130
     }
     
     
