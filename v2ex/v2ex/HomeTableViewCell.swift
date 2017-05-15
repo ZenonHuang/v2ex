@@ -33,10 +33,11 @@ class HomeTableViewCell: UITableViewCell {
         self.newsTitleLabel?.text=title
         self.newsContentLabel?.text=content
         self.timeLabel?.text=time
-//        self.categoryLabel
+
         self.avatarImageView?.image=UIImage(named: "twitter")
         let url=NSURL(string : avatar)!
-        self.avatarImageView?.kf.setImage(with: url as? Resource, placeholder: UIImage(named: "twitter"))
+        let resource = ImageResource.init(downloadURL: url as URL)
+        self.avatarImageView?.kf.setImage(with: resource, placeholder: UIImage(named: "twitter"))
 
     }
     
