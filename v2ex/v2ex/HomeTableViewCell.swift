@@ -34,9 +34,7 @@ class HomeTableViewCell: UITableViewCell {
         self.newsContentLabel?.text=content
         self.timeLabel?.text=time
 
-        self.avatarImageView?.image=UIImage(named: "twitter")
-        let url=NSURL(string : avatar)!
-        let resource = ImageResource.init(downloadURL: url as URL)
+        let resource = ImageResource.init(downloadURL:URL(string :avatar)!)
         self.avatarImageView?.kf.setImage(with: resource, placeholder: UIImage(named: "twitter"))
 
     }
