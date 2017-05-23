@@ -25,16 +25,29 @@ class Details: NSObject {  //模型类
 
 class DetailsViewController: UIViewController {   
     var id : Int! 
+    
+    var scrollView : UIScrollView!
+    
     var titleLabel : UILabel! 
     var contentLabel : UILabel!
+    
     
     
     override func viewDidLoad() {      
         super.viewDidLoad()       
         
         self.navigationItem.title="详情"
-        self.view.backgroundColor = UIColor.orange  
+        self.view.backgroundColor = UIColor.white  
         
+        self.scrollView=UIScrollView.init()
+        
+        self.view.addSubview(self.scrollView)
+        
+        self.scrollView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.view).offset(0);
+            make.left.right.equalTo(self.view);
+            make.bottom.equalTo(self.view);
+        }
  
         // Optional Chainin or Guard
         guard let detailsID = self.id else {
@@ -86,15 +99,15 @@ extension DetailsViewController {
             titleLabel.text=title
         }
         
-        titleLabel.backgroundColor=UIColor.red
+        titleLabel.backgroundColor=UIColor.groupTableViewBackground
         titleLabel.numberOfLines=0
-        self.view.addSubview(titleLabel)
+        self.scrollView.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(64)
+            make.top.equalToSuperview().offset(0)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(60)
+//            make.height.equalTo(60)
         }
         
         self.titleLabel=titleLabel;
@@ -107,16 +120,17 @@ extension DetailsViewController {
             label.text=text
         }
         
-//        label.backgroundColor=UIColor.red
+        label.backgroundColor=UIColor.white
         label.numberOfLines=0
-        self.view.addSubview(label)
+        self.scrollView.addSubview(label)
         
         label.snp.makeConstraints { (make) in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(0)
 //            make.centerX.equalToSuperview()
-            make.left.equalTo(self.view)
-            make.width.equalToSuperview()
+            make.left.right.equalTo(self.view)
+//            make.width.equalToSuperview()
 //            make.height.equalTo(60)
+            make.bottom.equalToSuperview()
         }
         
         self.contentLabel=label
