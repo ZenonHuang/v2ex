@@ -26,10 +26,24 @@ class Details: NSObject {  //模型类
 class DetailsViewController: UIViewController {   
     var id : Int! 
     
-    var scrollView : UIScrollView!
+    lazy var scrollView : UIScrollView = {
+        return UIScrollView.init()
+    }()
+
     
-    var titleLabel : UILabel! 
-    var contentLabel : UILabel!
+    lazy var titleLabel : UILabel = {
+        let titleLabel=UILabel.init()
+        titleLabel.backgroundColor=UIColor.groupTableViewBackground
+        titleLabel.numberOfLines=0
+        return titleLabel
+    }() 
+    
+    lazy var contentLabel : UILabel = {
+        let label = UILabel.init()
+        label.backgroundColor=UIColor.white
+        label.numberOfLines=0
+        return label
+    }()
     
     
     
@@ -39,10 +53,9 @@ class DetailsViewController: UIViewController {
         self.navigationItem.title="详情"
         self.view.backgroundColor = UIColor.white  
         
-        self.scrollView=UIScrollView.init()
+        
         
         self.view.addSubview(self.scrollView)
-        
         self.scrollView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view).offset(0);
             make.left.right.equalTo(self.view);
@@ -76,10 +89,6 @@ class DetailsViewController: UIViewController {
             HUD.hide(animated: true)
         }
         
-        
-        
-        
-        
     }
     
 }
@@ -94,37 +103,30 @@ extension DetailsViewController {
     
     func setupTitle(text:String?) {
         
-        let titleLabel=UILabel.init()
         if let title=text {
             titleLabel.text=title
         }
         
-        titleLabel.backgroundColor=UIColor.groupTableViewBackground
-        titleLabel.numberOfLines=0
-        self.scrollView.addSubview(titleLabel)
-        
-        titleLabel.snp.makeConstraints { (make) in
+        self.scrollView.addSubview(self.titleLabel)
+        self.titleLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(0)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
 //            make.height.equalTo(60)
         }
         
-        self.titleLabel=titleLabel;
     }
     
     func setupContent(text:String?) {
         
-        let label = UILabel.init()
+       
         if let text = text {
-            label.text=text
+            self.contentLabel.text=text
         }
+    
+        self.scrollView.addSubview( self.contentLabel)
         
-        label.backgroundColor=UIColor.white
-        label.numberOfLines=0
-        self.scrollView.addSubview(label)
-        
-        label.snp.makeConstraints { (make) in
+         self.contentLabel.snp.makeConstraints { (make) in
             make.top.equalTo(self.titleLabel.snp.bottom).offset(0)
 //            make.centerX.equalToSuperview()
             make.left.right.equalTo(self.view)
@@ -132,8 +134,7 @@ extension DetailsViewController {
 //            make.height.equalTo(60)
             make.bottom.equalToSuperview()
         }
-        
-        self.contentLabel=label
+
     }
 
 }
