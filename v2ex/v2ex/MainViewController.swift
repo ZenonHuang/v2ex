@@ -23,10 +23,10 @@ extension MainViewController {
     ///添加所有的子控制器
     fileprivate func addAllChildsControllors() {
         ///首页
-        let homeVC = HomeViewController()
+        let discoverVC = DiscoverViewController() //HomeViewController()
         
-        addOneChildVC(childVC: homeVC,
-                        title: "首页", 
+        addOneChildVC(childVC: discoverVC,
+                        title: "发现", 
                         image: UIImage(named: "tabbar_hot"),//UIImage(imageLiteralResourceName: "btn_home_normal"), 
                  selecteImage: UIImage(named: "tabbar_hot_selected"))
         

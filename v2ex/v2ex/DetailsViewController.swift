@@ -35,6 +35,8 @@ class DetailsViewController: UIViewController {
         let titleLabel=UILabel.init()
         titleLabel.backgroundColor=UIColor.groupTableViewBackground
         titleLabel.numberOfLines=0
+        titleLabel.font=UIFont.systemFont(ofSize: 20)
+        titleLabel.textAlignment =  NSTextAlignment.center
         return titleLabel
     }() 
     
@@ -52,9 +54,7 @@ class DetailsViewController: UIViewController {
         
         self.navigationItem.title="详情"
         self.view.backgroundColor = UIColor.white  
-        
-        
-        
+
         self.view.addSubview(self.scrollView)
         self.scrollView.snp.makeConstraints { (make) in
             make.top.equalTo(self.view).offset(0);
@@ -66,8 +66,7 @@ class DetailsViewController: UIViewController {
         guard let detailsID = self.id else {
             return 
         }
-        
-        
+                
         HUD.show(.progress, onView: self.view)
       
         //主题信息
@@ -83,14 +82,11 @@ class DetailsViewController: UIViewController {
                     self.setupTitle(text: title)
                     self.setupContent(text: content)
                 }
-                
             }
             
             HUD.hide(animated: true)
         }
-        
     }
-    
 }
 
 // Swift中类的扩展: Swift中的扩展相当于OC中的分类
@@ -104,15 +100,17 @@ extension DetailsViewController {
     func setupTitle(text:String?) {
         
         if let title=text {
-            titleLabel.text=title
+            self.titleLabel.text=title
         }
         
         self.scrollView.addSubview(self.titleLabel)
         self.titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(0)
-            make.centerX.equalToSuperview()
-            make.width.equalToSuperview()
-//            make.height.equalTo(60)
+            make.top.equalToSuperview().offset(10)
+//            make.centerX.equalToSuperview()
+//            make.width.equalToSuperview()
+            
+            make.left.equalTo(self.view).offset(20)
+            make.right.equalTo(self.view).offset(-20)
         }
         
     }
@@ -127,7 +125,7 @@ extension DetailsViewController {
         self.scrollView.addSubview( self.contentLabel)
         
          self.contentLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(0)
+            make.top.equalTo(self.titleLabel.snp.bottom).offset(20)
 //            make.centerX.equalToSuperview()
             make.left.right.equalTo(self.view)
 //            make.width.equalToSuperview()
